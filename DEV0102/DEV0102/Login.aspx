@@ -19,9 +19,8 @@
             <br />
             <br />
             <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
-            <br />
-            <asp:LinkButton ID="btnEsqueciSenha" runat="server" Text="Esqueci a senha" OnClick="btnEsqueciSenha_Click"></asp:LinkButton>
-
+            <br />  <br />
+            <asp:Button ID="btnCasdastrar" runat="server" Text="Cadastre-se" OnClick="btnCasdastrar_Click" />
         </div>
     </form>
 </body>

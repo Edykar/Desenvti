@@ -31,9 +31,13 @@
             <label>Senha:</label><br />
             <asp:TextBox ID="txtSenha" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-            <asp:FileUpload ID="fupFoto" runat="server" /><br />
+            <asp:FileUpload ID="fupFoto" runat="server" /><br /><br />
             <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" />
-            <br />
+            <br /><br />
+            <asp:Panel ID="PanelUsuariosCadastrados" runat="server" Visible="false">
+            <asp:Button ID="btnEnviarEmail" runat="server" Text="Enviar Email" OnClick="btnEnviarEmail_Click" OnClientClick="return confirm('Deseja Enviar?')" /> <br /><br />
+            <asp:Button ID="btnPaginaInicial" runat="server" Text="Pagina Inicial" OnClick="btnPaginaInicial_Click" />
+
             <h4>Usuários Cadastrados</h4>
             <asp:GridView ID="gridUsuario" OnRowCommand="gridUsuario_RowCommand" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo" DataSourceID="SqlDataSourceUsuario" AllowPaging="True" AllowSorting="True">
                 <Columns>
@@ -51,6 +55,7 @@
                     <asp:BoundField DataField="nomeFoto" Visible="false" HeaderText="nomeFoto" SortExpression="nomeFoto"></asp:BoundField>
                     <asp:ButtonField ButtonType="Button" CommandName="Deletar" Text="Excluir" />
                     <asp:ButtonField ButtonType="Button" CommandName="Editar" Text="Editar" />
+                    
     <asp:HyperLinkField NavigateUrl="http://www.uol.com.br" Text="Acesse o Site"></asp:HyperLinkField>
    
 </Columns>
@@ -59,7 +64,8 @@
             <asp:HiddenField ID="hiddenfildCodigo" runat="server" Value="0" />
 
             <asp:SqlDataSource runat="server" ID="SqlDataSourceUsuario" ConnectionString='<%$ ConnectionStrings:DEV0102ConnectionString %>' SelectCommand="select '~/fotoUsuario/' + nomeFoto as caminhoFoto, * from tabusuario"></asp:SqlDataSource>
-        </div>
+       </asp:Panel>
+                </div>
     </form>
 </body>
 </html>

@@ -11,9 +11,22 @@ namespace DEV0102
 {
     public partial class Login : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.ServerVariables["QUERY_STRING"].Contains("Sair"))
 
+            {
+                Session.Remove("CodigoUsuario");
+            }
+            if (Session["CodigoUsuario"] != null)
+            {
+
+                //Session.Remove("CodigoUsuario");
+                Response.Redirect("Home.aspx");
+
+
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -30,7 +43,8 @@ namespace DEV0102
             }
             else
             {
-                Response.Redirect("cadUsuario.aspx");
+                Session.Add("CodigoUsuario", objUsuario.codigo);
+                Response.Redirect("Home.aspx");
             }
         }
 
@@ -57,6 +71,11 @@ namespace DEV0102
                 ExibirAlerta("Email enviado, verifique sua caixa de entrada");
             }
 
+        }
+
+        protected void btnCasdastrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("cadUsuario.aspx?Cadastro=Novo");
         }
     }
 }

@@ -51,12 +51,12 @@ namespace DEV0102
         protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
-        /// Controle btnEsqueciSenha.
+        /// Controle btnCasdastrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnEsqueciSenha;
+        protected global::System.Web.UI.WebControls.Button btnCasdastrar;
     }
 }
